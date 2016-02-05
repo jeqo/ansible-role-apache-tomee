@@ -20,7 +20,7 @@
 - name: install apache tomee
   unarchive:
     src: "{{ apache_tomee_url }}"
-    dest: "{{ apache_tomee_home }}"
+    dest: "{{ apache_tomee_base }}"
     owner: "{{ ansible_user_id }}"
     copy: no
     creates: "{{ apache_tomee_home }}/bin/catalina.sh"

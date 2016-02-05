@@ -1,7 +1,7 @@
 ---
 #
 - set_fact:
-    apache_tomee_config_template: "tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version}}.xml.j2"
+    apache_tomee_config_template: "templates/tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version}}.xml.j2"
   when: apache_tomee_config_template == ''
 
 - stat: path="{{ apache_tomee_config_template }}"

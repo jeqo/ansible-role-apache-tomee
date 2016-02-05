@@ -23,4 +23,5 @@
     dest: "{{ apache_tomee_home }}"
     owner: "{{ ansible_user_id }}"
     copy: no
+    creates: "{{ apache_tomee_home }}/bin/catalina.sh"
   become: yes

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomee>
-  {% if apache_tomee_domain.jms is defined %}
+  {% if apache_tomee_config.jms is defined %}
   <!-- see http://tomee.apache.org/containers-and-resources.html -->
 
   <!-- activate next line to be able to deploy applications in apps -->
   <!-- <Deployments dir="apps" /> -->
-  <Resource id="{{apache_tomee_domain.jms.resource_adapter.name}}" type="{{apache_tomee_domain.jms.resource_adapter.type}}">
+  <Resource id="{{apache_tomee_config.jms.resource_adapter.name}}" type="{{apache_tomee_config.jms.resource_adapter.type}}">
       # Do not start the embedded ActiveMQ broker
-      BrokerXmlConfig  = broker:(tcp://{{ apache_tomee_domain.jms.resource_adapter.broker.hostname }}:{{ apache_tomee_domain.jms.resource_adapter.broker.port }})
-      ServerUrl = tcp://{{ apache_tomee_domain.jms.resource_adapter.broker.hostname }}:{{ apache_tomee_domain.jms.resource_adapter.broker.port }}
+      BrokerXmlConfig  = broker:(tcp://{{ apache_tomee_config.jms.resource_adapter.broker.hostname }}:{{ apache_tomee_config.jms.resource_adapter.broker.port }})
+      ServerUrl = tcp://{{ apache_tomee_config.jms.resource_adapter.broker.hostname }}:{{ apache_tomee_config.jms.resource_adapter.broker.port }}
   </Resource>
 
-  <Resource id="{{apache_tomee_domain.jms.resource_adapter.connection_factory}}" type="javax.jms.ConnectionFactory">
-      ResourceAdapter = {{apache_tomee_domain.jms.resource_adapter.name}}
+  <Resource id="{{apache_tomee_config.jms.resource_adapter.connection_factory}}" type="javax.jms.ConnectionFactory">
+      ResourceAdapter = {{apache_tomee_config.jms.resource_adapter.name}}
   </Resource>
 
-  <Container id="{{apache_tomee_domain.jms.resource_adapter.mdb_container}}" ctype="MESSAGE">
-      ResourceAdapter = {{apache_tomee_domain.jms.resource_adapter.name}}
+  <Container id="{{apache_tomee_config.jms.resource_adapter.mdb_container}}" ctype="MESSAGE">
+      ResourceAdapter = {{apache_tomee_config.jms.resource_adapter.name}}
   </Container>
 
-  {% for queue in apache_tomee_domain.jms.queues %}
+  {% for queue in apache_tomee_config.jms.queues %}
   <Resource id="{{ queue.id }}" type="javax.jms.Queue"/>
   {% endfor %}
-  {% for topic in apache_tomee_domain.jms.topics %}
+  {% for topic in apache_tomee_config.jms.topics %}
   <Resource id="{{ topic.id }}" type="javax.jms.Topic"/>
   {% endfor %}
   {% endif %}

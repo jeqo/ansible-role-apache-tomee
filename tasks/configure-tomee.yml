@@ -2,17 +2,18 @@
 #
 - set_fact:
     apache_tomee_config_template: "templates/tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version}}.xml.j2"
-  when: apache_tomee_config_template == ''
-
-- stat: path="{{ apache_tomee_config_template }}"
-  register: tomee
-
-- debug:
-    msg: "{{ apache_tomee_config_template }} is not found. configuration won't change"
-  when: not tomee.stat.exists
+  when: apache_tomee_config_path == ''
 
 - name: prepare tomee configuration file
   template:
     src: "{{ apache_tomee_template }}"
+    dest: /tmp/tomee.xml
+  when: apache_tomee_config_path == ''
+
+- set_fact:
+    apache_tomee_config_path: /tmp/tomee.xml
+  when: apache_tomee_config_path == ''
+
+- copy:
+    src: "{{ apache_tomee_config_path }}"
     dest: "{{ apache_tomee_home }}/conf/tomee.xml"
-  when: tomee.stat.exists

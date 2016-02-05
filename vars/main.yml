@@ -1,2 +1,6 @@
 ---
 # vars file for apache-tomee
+apache_tomee_directory: http://www.us.apache.org/dist/tomee/tomee-{{ apache_tomee_version }}
+apache_tomee_url:
+
+apache_tomee_base: /opt/apache-tomee

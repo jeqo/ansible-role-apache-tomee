@@ -1,2 +1,9 @@
 ---
 # tasks file for apache-tomee
+- include: set-vars.yml
+  tags:
+    - install
+
+- include: install-tomee.yml
+  tags:
+    - install

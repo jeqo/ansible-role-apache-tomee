@@ -1,2 +1,4 @@
 ---
 # defaults file for apache-tomee
+apache_tomee_version: 1.7.3
+apache_tomee_edition: plus # webprofile or plus or plume or jaxrs

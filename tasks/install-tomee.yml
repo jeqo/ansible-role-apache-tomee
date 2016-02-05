@@ -1,0 +1,19 @@
+---
+#
+- debug:
+  msg: "apache tomee {{ apache_tomee_edition }} {{ apache_tomee_version }} will be downloaded from {{ apache_tomee_url }} to {{ apache_tomee_home }}"
+
+- name: prepare apache tomee home
+  file:
+    path: "{{ apache_tomee_home }}"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+  become: yes
+
+- name: install payara
+  unarchive:
+    src: "{{ apache_tomee_url }}"
+    dest: "{{ apache_tomee_home }}"
+    owner: "{{ ansible_user_id }}"
+    copy: no
+  become: yes

@@ -1,5 +1,8 @@
 ---
-- hosts: localhost
-  remote_user: root
+# test units
+- name: test install apache tomee plus 1.7.3 on centos 7 with openjdk jdk 7
+  hosts: test01
   roles:
-    - apache-tomee
+    - role: apache-tomee
+      apache_tomee_version: 1.7.3
+      apache_tomee_edition: plus

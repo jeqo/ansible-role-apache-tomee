@@ -3,7 +3,6 @@
 apache_tomee_version: 1.7.3
 apache_tomee_edition: plus # webprofile or plus or plume or jaxrs
 
-
 apache_tomee_config:
 #  jms:
 #    resource_adapter: #
@@ -20,3 +19,8 @@ apache_tomee_config:
 #    topics:
 #      -
 #        id:
+
+apache_tomee_server:
+  default_host: "{{ ansible_hostname }}"
+  http_port: 8080
+  ajp_port: 8009

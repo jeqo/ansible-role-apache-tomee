@@ -10,6 +10,13 @@
     owner: "{{ ansible_user_id }}"
   become: yes
 
+- name: install unarchive packages
+  package: name={{ item }} state=latest
+  become: yes
+  with_items:
+    - unzip
+    - tar
+
 - name: install apache tomee
   unarchive:
     src: "{{ apache_tomee_url }}"

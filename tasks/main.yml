@@ -7,3 +7,7 @@
 - include: install-tomee.yml
   tags:
     - install
+
+- include: configure-tomee.yml
+  tags:
+    - configure

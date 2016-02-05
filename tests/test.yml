@@ -6,3 +6,18 @@
     - role: apache-tomee
       apache_tomee_version: 1.7.3
       apache_tomee_edition: plus
+      apache_tomee_domain:
+        jms:
+          resource_adapter:
+            name: ApiResourceAdapter
+            type: ActiveMQResourceAdapter
+            broker:
+              hostname: "{{ ansible_hostname }}"
+              port: 61616
+            connection_factory: ApiJmsConnectionFactory
+            mdb_container: ApiJmsMdbContainer
+          queues:
+            -
+              id: apiRequestQueue
+            -
+              id: apiResponseQueue

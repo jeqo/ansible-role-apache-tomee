@@ -1,9 +1,6 @@
 ---
 #
-- set_fact:
-    apache_tomee_template: "templates/tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version}}.xml.j2"
-
 - name: prepare tomee configuration file
   template:
-    src: "{{ apache_tomee_template }}"
+    src: "tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version}}.xml.j2"
     dest: "{{ apache_tomee_home }}/conf/tomee.xml"

@@ -3,25 +3,12 @@
 - debug:
     msg: "apache tomee {{ apache_tomee_edition }} {{ apache_tomee_version }} will be downloaded from {{ apache_tomee_url }} to {{ apache_tomee_home }}"
 
-- name: prepare apache tomee home
-  file:
-    path: "{{ apache_tomee_home }}"
-    state: directory
-    owner: "{{ ansible_user_id }}"
-  become: yes
-
-- name: install unarchive packages
-  package: name={{ item }} state=latest
-  become: yes
-  with_items:
-    - unzip
-    - tar
-
 - name: install apache tomee
   unarchive:
     src: "{{ apache_tomee_url }}"
     dest: "{{ apache_tomee_base }}"
-    owner: "{{ ansible_user_id }}"
+    owner: "{{ apache_tomee_user }}"
+    group: "{{ apache_tomee_group}}"
     copy: no
     creates: "{{ apache_tomee_home }}/bin/catalina.sh"
   become: yes

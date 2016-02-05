@@ -1,0 +1,17 @@
+---
+#
+- group:
+    name: "{{ apache_tomee_group }}"
+    state: present
+
+- user:
+    name: "{{ apache_tomee_user }}"
+    group: "{{ apache_tomee_group }}"
+    home: "/opt"
+
+- name: install unarchive packages
+  package: name={{ item }} state=latest
+  become: yes
+  with_items:
+    - unzip
+    - tar

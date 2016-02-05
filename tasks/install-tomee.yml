@@ -1,7 +1,7 @@
 ---
 #
 - debug:
-  msg: "apache tomee {{ apache_tomee_edition }} {{ apache_tomee_version }} will be downloaded from {{ apache_tomee_url }} to {{ apache_tomee_home }}"
+    msg: "apache tomee {{ apache_tomee_edition }} {{ apache_tomee_version }} will be downloaded from {{ apache_tomee_url }} to {{ apache_tomee_home }}"
 
 - name: prepare apache tomee home
   file:

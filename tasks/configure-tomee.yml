@@ -6,4 +6,4 @@
 - name: prepare tomee configuration file
   template:
     src: "{{ apache_tomee_template }}"
-    dest: {{ apache_tomee_home }}/conf/tomee.xml
+    dest: "{{ apache_tomee_home }}/conf/tomee.xml"

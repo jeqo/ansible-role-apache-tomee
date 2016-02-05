@@ -14,6 +14,9 @@
     apache_tomee_config_path: /tmp/tomee.xml
   when: apache_tomee_config_path == ''
 
+- debug:
+    msg: "{{ apache_tomee_config_path }} will be the tomee config file" 
+
 - copy:
     src: "{{ apache_tomee_config_path }}"
     dest: "{{ apache_tomee_home }}/conf/tomee.xml"

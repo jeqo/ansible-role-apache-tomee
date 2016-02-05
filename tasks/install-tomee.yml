@@ -10,7 +10,7 @@
     owner: "{{ ansible_user_id }}"
   become: yes
 
-- name: install payara
+- name: install apache tomee
   unarchive:
     src: "{{ apache_tomee_url }}"
     dest: "{{ apache_tomee_home }}"

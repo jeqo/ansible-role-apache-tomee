@@ -6,4 +6,4 @@
 
 - set_fact:
     apache_tomee_url:  "{{ apache_tomee_directory }}/{{ apache_tomee_installer }}"
-  when: apache_tomee_url == ''
+  when: apache_tomee_url != ''

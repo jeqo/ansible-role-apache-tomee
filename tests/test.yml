@@ -6,7 +6,7 @@
     - role: apache-tomee
       apache_tomee_version: 1.7.3
       apache_tomee_edition: plus
-      apache_tomee_domain:
+      apache_tomee_config:
         jms:
           resource_adapter:
             name: ApiResourceAdapter
@@ -21,3 +21,4 @@
               id: apiRequestQueue
             -
               id: apiResponseQueue
+          topics:

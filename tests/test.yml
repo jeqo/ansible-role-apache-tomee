@@ -21,4 +21,4 @@
               id: apiRequestQueue
             -
               id: apiResponseQueue
-          topics:
+          topics: []

@@ -3,6 +3,6 @@
 apache_tomee_directory: http://www.us.apache.org/dist/tomee/tomee-{{ apache_tomee_version }}
 apache_tomee_url:
 
-apache_tomee_config_template:
+apache_tomee_config_path:
 
 apache_tomee_base: /opt/apache-tomee

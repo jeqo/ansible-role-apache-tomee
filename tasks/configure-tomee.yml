@@ -2,21 +2,8 @@
 #
 - set_fact:
     apache_tomee_config_template: "templates/tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version}}.xml.j2"
-  when: apache_tomee_config_path is undefined or apache_tomee_config_path == ""
 
 - name: prepare tomee configuration file
   template:
     src: "{{ apache_tomee_template }}"
-    dest: /tmp/tomee.xml
-  when: apache_tomee_config_path is undefined or apache_tomee_config_path == ""
-
-- set_fact:
-    apache_tomee_config_path: /tmp/tomee.xml
-  when: apache_tomee_config_path is undefined or apache_tomee_config_path == ""
-
-- debug:
-    msg: "{{ apache_tomee_config_path }} will be the tomee config file"
-
-- copy:
-    src: "{{ apache_tomee_config_path }}"
-    dest: "{{ apache_tomee_home }}/conf/tomee.xml"
+    dest: {{ apache_tomee_home }}/conf/tomee.xml

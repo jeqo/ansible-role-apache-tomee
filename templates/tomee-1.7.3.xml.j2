@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomee>
-  {% if apache_tomee_config.jms is defined %}
   <!-- see http://tomee.apache.org/containers-and-resources.html -->
 
   <!-- activate next line to be able to deploy applications in apps -->
   <!-- <Deployments dir="apps" /> -->
+  {% if apache_tomee_config.jms is defined %}
   <Resource id="{{apache_tomee_config.jms.resource_adapter.name}}" type="{{apache_tomee_config.jms.resource_adapter.type}}">
       # Do not start the embedded ActiveMQ broker
       BrokerXmlConfig  = broker:(tcp://{{ apache_tomee_config.jms.resource_adapter.broker.hostname }}:{{ apache_tomee_config.jms.resource_adapter.broker.port }})

@@ -124,7 +124,7 @@
                resourceName="UserDatabase"/>
       </Realm>
 
-      <Host name="{{ apache_tomee_server.http_port }}"  appBase="webapps"
+      <Host name="{{ apache_tomee_server.default_host }}"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
 
         <!-- SingleSignOn valve, share authentication between web applications

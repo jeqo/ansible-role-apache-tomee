@@ -7,7 +7,9 @@
 - user:
     name: "{{ apache_tomee_user }}"
     group: "{{ apache_tomee_group }}"
-    home: "/opt"
+    home: "/opt/{{ apache_tomee_user }}"
+    createhome: yes
+    state: present
 
 - name: install unarchive packages
   package: name={{ item }} state=latest

@@ -7,7 +7,7 @@
 
 - include: validate.yml
   become: yes
-  become_user: "{{ tomee_user }}"
+  become_user: "{{ apache_tomee_user }}"
 
 - include: install.yml
   when: not apache_tomee_already_installed
@@ -15,5 +15,7 @@
     - install
 
 - include: configure.yml
+  become: yes
+  become_user: "{{ apache_tomee_user }}"
   tags:
     - configure

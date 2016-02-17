@@ -4,12 +4,8 @@
   template:
     src: "tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version}}.xml.j2"
     dest: "{{ apache_tomee_home }}/conf/tomee.xml"
-  become: yes
-  become_user: "{{ apache_tomee_user }}"
 
 - name: prepare tomee server configuration file
   template:
     src: "server-{{ apache_tomee_edition }}-{{ apache_tomee_version}}.xml.j2"
     dest: "{{ apache_tomee_home }}/conf/server.xml"
-  become: yes
-  become_user: "{{ apache_tomee_user }}"

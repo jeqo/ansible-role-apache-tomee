@@ -5,7 +5,7 @@ apache_tomee_group: tomee
 
 apache_tomee_home: "{{ apache_tomee_base }}/apache-tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version }}"
 
-apache_tomee_url: http://www.us.apache.org/dist/tomee/tomee-{{ apache_tomee_version }}
+apache_tomee_url_directory: http://www.us.apache.org/dist/tomee/tomee-{{ apache_tomee_version }}
 apache_tomee_installer: "apache-tomee-{{ apache_tomee_version }}-{{ apache_tomee_edition }}.tar.gz"
 
 apache_tomee_url:  "{{ apache_tomee_url_directory }}/{{ apache_tomee_installer }}"

@@ -1,0 +1,13 @@
+---
+#
+- name: validate apache tomee is installed
+  stat: path="{{ apache_tomee_home }}/bin/catalina.sh"
+  register: catalina
+
+- debug:
+    msg: "apache tomee is already installed in this location: {{ apache_tomee_home }}"
+  when: catalina.stat.exists
+
+- set_fact:
+    apache_tomee_already_installed: true
+  when: catalina.stat.exists

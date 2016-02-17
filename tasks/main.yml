@@ -1,18 +1,19 @@
 ---
 # tasks file for apache-tomee
-- include: prepare-os.yml
+- include: prepare.yml
   become: yes
   tags:
     - preinstall
 
-- include: set-vars.yml
+- include: validate.yml
+  become: yes
+  become_user: "{{ tomee_user }}"
+
+- include: install.yml
+  when: not apache_tomee_already_installed
   tags:
     - install
 
-- include: install-tomee.yml
-  tags:
-    - install
-
-- include: configure-tomee.yml
+- include: configure.yml
   tags:
     - configure

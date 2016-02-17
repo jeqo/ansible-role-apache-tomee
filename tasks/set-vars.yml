@@ -1,9 +1,0 @@
----
-#
-- set_fact:
-    apache_tomee_installer: "apache-tomee-{{ apache_tomee_version }}-{{ apache_tomee_edition }}.tar.gz"
-    apache_tomee_home: "{{ apache_tomee_base }}/apache-tomee-{{ apache_tomee_edition }}-{{ apache_tomee_version }}"
-
-- set_fact:
-    apache_tomee_url:  "{{ apache_tomee_directory }}/{{ apache_tomee_installer }}"
-  when: apache_tomee_url != ''

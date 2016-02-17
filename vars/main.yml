@@ -8,6 +8,8 @@ apache_tomee_home: "{{ apache_tomee_base }}/apache-tomee-{{ apache_tomee_edition
 apache_tomee_url: http://www.us.apache.org/dist/tomee/tomee-{{ apache_tomee_version }}
 apache_tomee_installer: "apache-tomee-{{ apache_tomee_version }}-{{ apache_tomee_edition }}.tar.gz"
 
+apache_tomee_url:  "{{ apache_tomee_url_directory }}/{{ apache_tomee_installer }}"
+
 apache_tomee_config_path:
 
 apache_tomee_base: /opt/{{ apache_tomee_user }}
